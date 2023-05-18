@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class='h-100'>
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="manifest" href="/app.webmanifest" />
+	<link rel='icon'
+		href='https://media.discordapp.net/attachments/911886961273348096/1081887631643791470/Untitled502_20230305160449.png?width=405&height=405'>
+	<meta name="description"
+		content="Upcoming Layout | Chattingly Let's you connect with all others, beyond the comfort zone!">
+	<meta property="og:image"
+		content="https://media.discordapp.net/attachments/911886961273348096/1081886285431574638/Untitled502_20230305155920.png?width=405&height=405">
+	<link href='/files/new.css' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<title>Chattingly</title>
+
+</head>
+
+<body onfocus="focus()">
+	<div id="overlay" style="text-align: center; padding-top:20vw; backdrop-filter: blur(5px);">
+		<b class="titlea">Chatting<span style="color: dodgerblue">ly</span></b>
+		<br><br><br>
+		<a id="simt"></a>
+	</div>
+	<script>
+		var facts = ["you cannot send double quotes in Chattingly.", "You can view the total members connected in the settings tab.", "The logo glows...", "you can hover messages to delete them from your device.", "you can simply start typing and we will focus the input automatically", "click enter while typing to send it.", "you can click on user badges.", "you can see your UID on your badge."]
+		function on() {
+			document.getElementById("overlay").style.display = "block";
+			document.getElementById("simt").innerHTML = facts[Math.floor(Math.random() * facts.length) + 0];
+		}
+
+		function off() {
+			document.getElementById("overlay").style.display = "none";
+		}
+	</script>
+	<input id="aboutme" style="display: none;">
+	<input id="icls" style="display: none;" type="color">
+	<input id="username" style="display: none;">
+	<script src="/files/new.js" defer></script>
+	<script src="/gl.js" defer></script>
+	<div id="nav">
+		<b class="title">Chatting<span style="color: dodgerblue">ly </span></b> BETA
+		<div class="dropdown" style="float:right;">
+			<b class="menuic dropbtn"><i class="material-icons">more_vert</i></b>
+			<div class="dropdown-content">
+				<a href="/index.html"><i class="material-icons qusets">home</i> Home</a>
+				<a onclick="document.getElementById('chat').innerHTML = '<p></p>'"><i
+						class="material-icons qusets">delete_sweep</i> Clear Chat</a>
+				<a onclick="openNav() "><i class="material-icons qusets">people</i> Member List</a>
+				<a onclick="window.location.reload()"><i class="material-icons qusets">autorenew</i> Rejoin</a>
+				<a onclick="location.href='/'"><i class="material-icons qusets">clear</i>Exit Group</a>
+				<a onclick="location.href='https://discord.gg/guH5c5sT6w'"><i
+						class="material-icons qusets">live_help</i>Support</a>
+				<a onclick="refreshCSS()"><i
+						class="material-icons qusets">repeat</i>Update CSS</a>
+			</div>
+		</div>
+	</div>
+	<div id="overlay2">
+		<div class="custom-loader" style="margin: auto; margin-top: 180px"></div>
+	</div>
+	<script>
+		function on2() {
+			document.getElementById("overlay2").style.display = "block";
+			document.getElementById("overlay2").style.opacity = "100%";
+		}
+
+		function off2() {
+			document.getElementById("overlay2").style.opacity = "0%";
+			document.getElementById("overlay2").style.display = "none";
+		}
+	</script>
+	<div id="mySidenav" class="sidenav"></div>
+	<div id="chat">
+		<noscript>
+			<p>No Javascript?</p>
+			<img src="https://img.memegenerator.net/images/73374976.jpg" height="105px">
+			<p>No, seriously, you need Javascript to access this site...</p>
+		</noscript>
+	</div>
+	<div id="mess">
+		<div class="drop2up">
+		<input class="flex-item-left" id="message" placeholder="Send A Message.." autocomplete="off" onkeypress="knent()"
+			onkeyup="fu2()">
+			
+  <div class="drop2up-content" id="slashes">
+    <a href="#" onclick="">image - send and image</a>
+  </div>
+</div>
+		<button class="flex-item-right" id="send" onclick="send()"><i class="material-icons">send</i></button><br>
+		<a id="typing">...</a>
+	</div>
+	<script>
+		function knent() {
+			if (event.key === "Enter") {
+				event.preventDefault();
+				send();
+			}
+			if (document.getElementById("message").value.startsWith("/")) {
+				document.getElementById("slashes").style.display = "block";
+			} else {
+				document.getElementById("slashes").style.display = "none";
+			}
+		};
+	</script>
+	<script>
+		function openNav() {
+			updatemem();
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("main").style.marginLeft = "250px";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("main").style.marginLeft = "0";
+		}
+	</script>
+
+	<audio id="hh">
+		<source src="https://cdn.discordapp.com/attachments/1087019533480493117/1087019533795082270/ping.mp3"
+			type="audio/mp3">
+	</audio>
+	<div id="myModal7" class="modal7">
+		<div class="modal-content7">
+			<span class="close7">&times;</span>
+			<p id="htoutmd">Some text in the Modal..</p>
+		</div>
+	</div>
+
+	<script>
+		var modal7 = document.getElementById("myModal7");
+
+		var span7 = document.getElementsByClassName("close7")[0];
+
+		function htmlout(value) {
+			document.getElementById("htoutmd").innerHTML = value;
+			modal7.style.display = "block";
+		}
+
+		span7.onclick = function () {
+			modal7.style.display = "none";
+		}
+
+		window.onclick = function (event) {
+			if (event.target == modal7) {
+				modal7.style.display = "none";
+			}
+		}
+	</script>
+
+	<div id="myModal3" onclick="document.getElementById('myModal3').style.display = 'none';" class="modalmp">
+		<div class="modalmp-content" style="-webkit-user-select: none;  -ms-user-select: none; user-select: none;"
+			id="mpmoc">
+			<h1 id="showout2">User</h1>
+			<sup><kbd id="showout3">UID Is not available</kbd></sup>
+			<p>Connected with <b class="title">Chatting<span style="color: dodgerblue">ly</span></b></p>
+			<a id="uionoff">Loading...</a> | <div class="btngrp"><button class="btn5" onclick="pinghim()">Ping</button><button class="btn5" onclick="dmhim()">Direct Message</button></div>
+			<hr>
+			<p id="about" style="resize: none;" class='smptx'>A Random Person In Chattingly</p>
+		</div>
+	</div>
+	<script>
+		var modal3 = document.getElementById("myModal3");
+		window.onclick = function (event) {
+			if (event.target == modal3) {
+				modal3.style.display = "none";
+			}
+		}
+	</script>
+	<!-- The Modal -->
+	<div id="myModalim" class="modalim">
+		<span class="closeim">&times;</span>
+		<img class="modal-contentim" id="img01">
+		<div id="captionim"></div>
+	</div>
+	<script>
+		// Get the modal
+		var modalim = document.getElementById("myModalim");
+		// Get the image and insert it inside the modal - use its "alt" text as a caption
+		var modalImg = document.getElementById("img01");
+		var captionText = document.getElementById("captionim");
+		function showimg(valim) {
+			modalim.style.display = "block";
+			modalImg.src = valim.src;
+			captionText.innerHTML = valim.alt;
+		}
+
+		// Get the <span> element that closes the modal
+		var spanim = document.getElementsByClassName("closeim")[0];
+
+		// When the user clicks on <span> (x), close the modal
+		spanim.onclick = function () {
+			modalim.style.display = "none";
+		}
+	</script>
+</body>
