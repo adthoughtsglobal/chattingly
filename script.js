@@ -79,7 +79,7 @@ connection.onopen = (event) => {
 	if (cutp == "ch") {
 		if (localStorage.getItem("lists") == null) {
 			let x = localStorage.getItem("lists") + `<div class="group">
-			<b onclick="openw('/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
+			<b onclick="openw('https://adthoughtsglobal.github.io/chattingly//app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
 			<a class="gname">` + ngname + `</a>
 		</div>`;
 			localStorage.setItem("lists", x);
@@ -378,19 +378,6 @@ function fu1() {
 
 function abyt() {
 	$('#mfamp').modal('show');
-}
-
-function ytlesnd() {
-	if (document.querySelector("#ytvl").value.includes("youtu")) {
-		let link = document.querySelector("#ytvl").value.split('/')[3];
-		document.querySelector("#message").value = `/ytem ` + "https://www.youtube.com/embed/" + link;
-		document.getElementById("send").click();
-
-		$('#mfamp').modal('hide');
-	} else {
-		alert("Invalid link!");
-		$('#mfamp').modal('show');
-	}
 }
 
 document.body.blur= function() {
