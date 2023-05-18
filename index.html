@@ -120,7 +120,7 @@
 			<img onclick="pmon()"
 				src="https://www.ateneo.edu/sites/default/files/2021-11/istockphoto-517998264-612x612.jpeg">
 			<h1 id="welcome">Oh Man, I Can't move, I Want JS!</h1>
-			<p>With the new Chattingly <b id="vertx"></b>, <span id="vertx2"></span></p>
+			<p>With the new Chattingly, There's unlimited freedom for you! Create countless groups on the go!</p>
 
 		</div>
 		<span class="gtitle">your Groups</span>
@@ -191,15 +191,3 @@
 			return "saved.";
 		}
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.4.2/tinymce.min.js" crossorigin="anonymous"></script>
-	<script>
-		getText("/datasets/current version.json");
-
-		async function getText(file) {
-			let myObject = await fetch(file);
-			let myText = await myObject.text();
-			document.getElementById("vertx").innerHTML = "version " + JSON.parse(myText).cver;
-			document.getElementById("vertx2").innerHTML = JSON.parse(myText).data;
-		}
-	</script>
-</body>
