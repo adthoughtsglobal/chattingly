@@ -79,7 +79,7 @@ connection.onopen = (event) => {
 	if (cutp == "ch") {
 		if (localStorage.getItem("lists") == null) {
 			let x = localStorage.getItem("lists") + `<div class="group">
-			<b onclick="openw('https://chattingly.adthoughtsglobal.repl.co/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
+			<b onclick="openw('/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
 			<a class="gname">` + ngname + `</a>
 		</div>`;
 			localStorage.setItem("lists", x);
@@ -89,7 +89,7 @@ connection.onopen = (event) => {
 
 			var xss;
 			xss = localStorage.getItem("lists") + `<div class="group">
-			<b onclick="openw('https://chattingly.adthoughtsglobal.repl.co/app.html?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
+			<b onclick="openw('/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
 			<a class="gname">` + ngname + `</a>
 		</div>`;
 			localStorage.setItem("lists", removeNull(xss));
