@@ -208,7 +208,7 @@ connection.onmessage = (event) => {
 			let pdt = nmo.dt;
 			let pmc = nmo.mc;
 			let pl = nmo.l;
-			let gnmfj = `<p class="mh"><button class="unms" style='color: ` + pmc + `' title="` + punm + `" onclick="showtext('` + punm + `','meth')">` + punm + `</button> <span style="display: inline;" class="datewith">` + pdt + `</span> <br> <img src="` + pl + `" onclick="showimg(this)" onerror="this.src = 'https://img.freepik.com/premium-vector/cross-ban-error-icon-vector-3d-illustration_153074-666.jpg?w=2000';" class="img-thumbnail" style='border-radius: 5px;'></p>`;
+			let gnmfj = `<p class="mh"><button class="unms" style='color: ` + pmc + `' title="` + punm + `" onclick="showtext('` + punm + `','meth')">` + punm + `</button> <span style="display: inline;" class="datewith">` + pdt + `</span> <br> <img src="` + pl + `" onclick="showimg(this)" onerror="this.src = 'https://media.discordapp.net/attachments/1083374857292615680/1109037703594512384/image.png?width=119&height=130';" class="img-thumbnail" style='border-radius: 5px;'></p>`;
 			chat.innerHTML += gnmfj;
 
 		} else if (event.data.includes(`"dat":"tsts"`)) {
