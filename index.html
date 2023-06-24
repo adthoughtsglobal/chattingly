@@ -125,7 +125,7 @@
 		</div>
 		<span class="gtitle">your Groups</span>
 		<div id="grouplist">
-			<div class="group" onclick="openw('https://adthoughtsglobal.github.io/chattingly//app/?h=main')">
+			<div class="group" onclick="openw('/app/?h=main')">
 				<b><i class="material-icons">people</i></b>
 				<a>main</a>
 				<button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
@@ -147,7 +147,7 @@
 			let ngname = prompt("Enter A New Group Name\n\n(The group name 'main' or '' will connect to the chattingly mainstream chat.)");
 			if (ngname != null || ngname != "") {
 				document.getElementById("grouplist").innerHTML += `<div class="group">
-			<b onclick="openw('https://adthoughtsglobal.github.io/chattingly/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
+			<b onclick="openw('/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
 			<a class="gname">` + ngname + `</a>
 		</div>`;
 				save();
