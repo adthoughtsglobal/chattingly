@@ -58,9 +58,24 @@
     <h1>Oops!</h1>
     <p>Looks like you wandered into the wrong neighborhood.</p>
     <p class="emoji">¯\_(ツ)_/¯</p>
-    <p class="joke">Why did the web developer go broke?</p>
-    <p class="joke">Because they lost their domain!</p>
-    <a href="/" class="back-btn">Can't bare these jokes, Take Me Home</a>
+    <p class="joke" id="joke"></p>
+    <a href="/" class="back-btn">Can't bear these jokes, Take Me Home</a>
   </div>
+
+  <script>
+    function getRandomJoke() {
+      const jokeElement = document.getElementById('joke');
+      const jokes = [
+        "Why did the web developer go broke?\nBecause they lost their domain!",
+        "Why don't scientists trust atoms?\nBecause they make up everything!",
+        "What's the best thing about Switzerland?\nI don't know, but the flag is a big plus!",
+        "Why did the scarecrow win an award?\nBecause he was outstanding in his field!"
+      ];
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      jokeElement.textContent = jokes[randomIndex];
+    }
+
+    window.addEventListener('DOMContentLoaded', getRandomJoke);
+  </script>
 </body>
 </html>
