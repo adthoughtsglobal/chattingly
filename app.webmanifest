@@ -14,21 +14,21 @@
       "src":"https://media.discordapp.net/attachments/896697486331232278/1125071604590858421/png_20230702_171937_0000.png?width=228&height=406",
       "sizes":"1080x1920",
       "type":"image/png",
-      "form_factor":"wide",
+      "form_factor":"narrow",
       "label":"Chattingly"
     },
     {
       "src":"https://media.discordapp.net/attachments/896697486331232278/1125071605211594854/png_20230702_171453_0000.png?width=228&height=406",
       "sizes":"1080x1920",
       "type":"image/png",
-      "form_factor":"wide",
+      "form_factor":"narrow",
       "label":"Chattingly"
     },
     {
       "src":"https://media.discordapp.net/attachments/896697486331232278/1125071605517795328/png_20230702_171130_0000.png?width=228&height=406",
       "sizes":"1080x1920",
       "type":"image/png",
-      "form_factor":"wide",
+      "form_factor":"narrow",
       "label":"Chattingly"
     }
   ],
