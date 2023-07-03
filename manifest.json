@@ -2,11 +2,11 @@
   "name": "Chattingly",
   "short_name": "Chattingly",
   "start_url": "../index.html",
-  "icons": [
+  "icons":[
     {
-      "src": "../icons/favicon.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src":"https://media.discordapp.net/attachments/911886961273348096/1081887631643791470/Untitled502_20230305160449.png?width=405&height=405",
+      "sizes":"192x192",
+      "type":"image/png"
     }
   ],
   "description": "This app demonstrate using the description and screenshots fields in the web app manifest to provide a richer install experience.",
