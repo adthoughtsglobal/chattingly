@@ -1,8 +1,7 @@
-
 {
-  "name": "Richer Install UI Example",
-  "short_name": "Richer Install UI",
-  "start_url": "../demo.html",
+  "name": "Chattingly",
+  "short_name": "Chattingly",
+  "start_url": "../index.html",
   "icons": [
     {
       "src": "../icons/favicon.png",
