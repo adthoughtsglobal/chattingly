@@ -1,38 +1,44 @@
+
+HTML
+JSON
+JS
 {
-  "background_color":"Black",
-  "description":"Chattingly is a web chat platform. Chattingly is a website where people from all over the world can chat with each other in one big chat room. It's a community where everyone can talk to each other and work together to make the chat room a fun place to be. You can also make your own private chat groups with your friends. It's a really fast and easy way to connect with people and have fun chatting!",
-  "display":"standalone",
-  "icons":[
+  "name": "Richer Install UI Example",
+  "short_name": "Richer Install UI",
+  "start_url": "../demo.html",
+  "icons": [
     {
-      "src":"https://media.discordapp.net/attachments/911886961273348096/1081887631643791470/Untitled502_20230305160449.png?width=405&height=405",
-      "sizes":"192x192",
-      "type":"image/png"
+      "src": "../icons/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
-  "screenshots":[
+  "description": "This app demonstrate using the description and screenshots fields in the web app manifest to provide a richer install experience.",
+  "screenshots": [
     {
-      "src":"https://media.discordapp.net/attachments/896697486331232278/1125071604590858421/png_20230702_171937_0000.png?width=228&height=406",
-      "sizes":"108x192",
-      "type":"image/png",
-      "form_factor":"narrow",
-      "label":"Chattingly"
+      "src": "./screens/squoosh-riui-phone1.jpg",
+      "type": "image/png",
+      "sizes": "540x1123",
+      "form_factor": "narrow"
     },
     {
-      "src":"https://media.discordapp.net/attachments/896697486331232278/1125071605211594854/png_20230702_171453_0000.png?width=228&height=406",
-      "sizes":"108x192",
-      "type":"image/png",
-      "form_factor":"narrow",
-      "label":"Chattingly"
+      "src": "./screens/squoosh-riui-phone.jpg",
+      "type": "image/jpeg",
+      "sizes": "540x1123",
+      "form_factor": "narrow"
     },
     {
-      "src":"https://media.discordapp.net/attachments/896697486331232278/1125071605517795328/png_20230702_171130_0000.png?width=228&height=406",
-      "sizes":"108x192",
-      "type":"image/png",
-      "form_factor":"narrow",
-      "label":"Chattingly"
+      "src": "./screens/squoosh-riui-desktop.jpg",
+      "type": "image/jpeg",
+      "sizes": "1194x1002",
+      "form_factor": "wide"
+    },
+    {
+      "src": "./screens/squoosh-riui-desktop1.jpg",
+      "type": "image/jpeg",
+      "sizes": "1194x1002",
+      "form_factor": "wide"
     }
   ],
-  "name":"Chattingly",
-  "short_name":"Chattingly",
-  "start_url":"https://chattingly.netlify.app/index.html"
+  "display": "standalone"
 }
