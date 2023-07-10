@@ -72,11 +72,11 @@
 		</div>
 	</div>
 	<script>
-		let luc = localStorage.getItem("lcolor");
+		let luc = ;
 		if (luc == null || luc == "") {
-			let x = "#333333";
+			let x = "#009dff";
 			localStorage.setItem("lcolor", x);
-			document.querySelector("#icls").value = "#333333";
+			document.querySelector("#icls").value = localStorage.getItem("lcolor");
 		} else {
 			document.querySelector("#icls").value = luc;
 		}
