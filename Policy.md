@@ -1,12 +1,16 @@
 Chattingly Legal short note
 ---
 
-1. Privacy policy
-We make sure that no one is able to view your sensitive information through connections without your notice. Creation of groups can let you talk to other people online in chattingly. This means that the privacy and your security depends on who you connect to. The mainstream chat could let more people connect to you resulting in bad situations. We prefer not to get into malicious groups, and prefer using longerr, more unique group names for ensuring less unknown people from connecting to your chat. Chattingly ensures No Privacy on chat. All messages you send with chattingly will be visible to people with other access or illigal modding on chattingly may be able to view your messages. Even though measures mentioned above could prevent people from getting to your group accidentally, people who wants to get the data could get it simply. But chattingly Never gives any UI for such purpose and We will not join your groups unless specific invites.  
+1. Privacy Policy
+
+At Chattingly, we prioritize your privacy and security. We take measures to ensure that your sensitive information cannot be accessed without your knowledge. When you create groups on Chattingly, you can engage in online conversations with other individuals. It's important to note that the level of privacy and security you experience depends on the connections you make.
+
+While using the mainstream chat feature allows for more people to connect with you, it also increases the potential for undesirable situations. To mitigate this risk, we recommend using longer and more unique group names, as this reduces the chances of unknown individuals connecting to your chat. However, it is crucial to understand that Chattingly cannot guarantee absolute privacy in chats. All messages you send through Chattingly may be visible to those with unauthorized access or through illegal modifications to the Chattingly platform. We want to emphasize that Chattingly does not provide any user interface or functionality for such purposes, and we will not join your groups unless specifically invited.
 
 2. Chattingly Clones
-DO NOT EVER CREATE APPLICATIONS OR CODE THAT COULD CONNECT, REPLICATE, RECREATE, MODIFY OR ANY OTHER PURPOSE THAT COULD BE USED TO SEND ANY OTHER CHATTINGLY MEMBER.  Do not copy chattingly, it is not fair and food for others. If you do something like this, we have the authority TO DO ANYTHING TO YOU as you agree this policy as per the AGREEMENT(3).
+
+Under no circumstances should you create applications or code that enables you to connect, replicate, recreate, modify, or perform any other action that could be used to impersonate another Chattingly member. Copying Chattingly in any form is not fair to others and strictly prohibited. By violating this policy, you acknowledge that we have the authority to take appropriate action against you, as outlined in the AGREEMENT (3).
 
 3. Agreement
-By using chattingly or by connecting to the chattingly WSS or just by interacting with the chattingly website with any kind of code, API, server, request, or the default chattingly UI in the website, will make you agree this policy. Even if you are connecting to the chattingly WSS or just by interacting with the chattingly website with any kind of code, API, server, request, or the default chattingly UI in the website maliciously, This still applies.
 
+By using Chattingly, connecting to the Chattingly WebSocket Servers (WSS), or interacting with the Chattingly website through code, API, server requests, or the default Chattingly user interface on the website, you agree to abide by this policy. This agreement remains valid even if you engage with Chattingly maliciously, including connecting to the Chattingly WSS or interacting with the website using code, API, server requests, or the default user interface in a manner that violates our policies.
