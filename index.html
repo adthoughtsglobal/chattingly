@@ -5,47 +5,47 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="manifest" href="manifest.json" />
+	<link rel="manifest" href="/app.webmanifest" />
 	<link rel='icon'
 		href='https://media.discordapp.net/attachments/911886961273348096/1081887631643791470/Untitled502_20230305160449.png?'>
-	<meta name="description"
-		content="Server List | Chattingly Let's you connect with all others, beyond the comfort zone!">
+	<meta name="description" content="Log on To chattingly Web chat Application with Auto Log In! By adthoughtsglobal">
 	<meta property="og:image"
 		content="https://media.discordapp.net/attachments/911886961273348096/1081886285431574638/Untitled502_20230305155920.png?width=405&height=405">
 	<link href='app.css' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<meta name="google-site-verification" content="isBIraFLlmhPc-jLFbRaol1llNl0m4lupZiduzz_kZA" />
+	<script src="launcher.js" defer></script>
 
-	<title>Chattingly</title>
+	<title>Chattingly - Chat Like Insane!</title>
 
 </head>
 
 <body>
 	<script src="gl.js" defer></script>
 	<div id="nav">
-		<b class="title">Chatting<span style="color: dodgerblue">ly</span></b> v10
+		<b class="title">Chatting<span style="color: var(--main-color);">ly</span></b> BETA
 		<div class="dropdown" style="float:right;">
 			<b class="menuic dropbtn"><i class="material-icons">more_vert</i></b>
 			<div class="dropdown-content">
-				<a onclick="pmon()">Profile</a>
-				<a href="/policy.md">Legal</a>
+				<a href="javascript:void(0);" onclick="pmon()">Profile</a>
+				<a href="https://chattingly.netlify.app/policy.md">Legal</a>
 			</div>
 		</div>
 	</div>
-	<div id="myModal" class="modal">
+	<dialog id="myModal" class="modal">
 		<!-- Profile / About Me -->
 		<div class="modal-content">
 			<span class="close" onclick="pmoff()"><i class="material-icons">arrow_back</i></span>
-			<span>Profile</span>
+			<span>Back</span>
 			<hr>
-			<div id="profc">
-				<input class="norminp" contenteditable="true" id="edname" maxlength="20"><br>
+			<div id="profc"><br>
+				<span class="gtitle">Username</span>
+				<input class="norminp inp" contenteditable="true" id="edname" maxlength="20"><br>
 				<span class="gtitle">Info Color</span>
 				<div class="styled-color-input">
 					<input type="color" value="dodgerblue" id="icls">
 				</div><br>
 				<span class="gtitle">About Me</span>
-				<textarea class="normte" maxlength="180" id="eddesc"></textarea>
+				<textarea class="normte inp" maxlength="180" id="eddesc"></textarea>
 				<br>
 				<button class="bigb" onclick="saved()">Save</button>
 			</div>
@@ -71,125 +71,91 @@
 
 			<br>
 		</div>
-	</div>
-	<script>
-		let luc = localStorage.getItem("lcolor");
-		if (luc == null || luc == "") {
-			let x = "#009dff";
-			localStorage.setItem("lcolor", x);
-			document.querySelector("#icls").value = localStorage.getItem("lcolor");
-		} else {
-			document.querySelector("#icls").value = luc;
-		}
-
-		if (localStorage.getItem("uname") == null || localStorage.getItem("uname") == "") {
-			let x = "user" + Math.floor(Math.random() * 999) + 100;
-			localStorage.setItem("uname", x);
-			console.log("un set");
-alert("Welcome To Chattingly!\n\nremember to check out Chattingly legal short note located at https://chattingly.netlify.app/policy.md")
-		}
-		document.getElementById("edname").value = localStorage.getItem("uname")
-		document.getElementById("eddesc").value = localStorage.getItem("udesc");
-		console.log("un disp suc");
-		console.log(localStorage.getItem("uname"));
-
-		function saved() {
-			localStorage.setItem("uname", document.getElementById("edname").value)
-			localStorage.setItem("udesc", document.getElementById("eddesc").value)
-			localStorage.setItem("lcolor", document.getElementById("icls").value)
-		}
-		// Get the modal
-		var modal = document.getElementById("myModal");
-
-		// Get the button that opens the modal
-		var btn = document.getElementById("myBtn");
-
-		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
-
-		function pmon() {
-			document.getElementById("myModal").style.display = "block";
-			document.getElementById("edname").innerHTML = localStorage.getItem("uname")
-			document.getElementById("eddesc").innerHTML = localStorage.getItem("udesc");
-		}
-		function pmoff() {
-			document.getElementById("myModal").style.display = "none";
-		}
-	</script>
+	</dialog>
 
 	<div id="groups">
 		<div class="welcome" id="welcomemain">
 			<img onclick="pmon()"
-				src="https://www.ateneo.edu/sites/default/files/2021-11/istockphoto-517998264-612x612.jpeg">
+				src="https://media.discordapp.net/attachments/987606348042735676/1130068278140747856/image.png?width=147&height=147">
 			<h1 id="welcome">Oh Man, I Can't move, I Want JS!</h1>
-			<p>Going to update to the BETA layout Very Soon!</p>
+			<p>People, groups and communities - explore the new chattingly!</p>
 
 		</div>
 		<span class="gtitle">your Groups</span>
-		<div id="grouplist">
-			<div class="group">
-				<b onclick="openw('/app/?h=main')"><i class="material-icons">people</i></b>
-				<a>main</a>
-				<button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
+		<div class="tab">
+			<button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Your Groups</button>
+			<button class="tablinks" onclick="openCity(event, 'Paris'); explore();">Explore</button>
+		</div>
+
+		<div id="London" class="tabcontent">
+			<div id="grouplist">
+				<div class="group">
+					<button class="del" onclick="rem(this)"><i class="material-icons"
+							style="font-size: 20px;transform: translate(13px, -6px);">more_vert</i></button>
+					<a class="gname" style="font-size: 18px;padding: 4px;" onclick="openw('/app/?h=main')">main</a>
+					<span class="glastm">Active</span>
+					<span class="gtmd">BETA</span>
+				</div>
 			</div>
 		</div>
-	</div><button class="addb" onclick="addg()">
-		+
-	</button>
-	<script>
 
-		document.getElementById("welcome").innerHTML = 'What\'s Cookin\' ' + localStorage.getItem('uname') + '?';
-		if (localStorage.getItem("lists") != null) {
-			document.getElementById("grouplist").innerHTML = localStorage.getItem("lists");
-		}
-		function openw(par) {
-			location.assign(par);
-		}
-		function addg() {
-			let ngname = prompt("Enter A New Group Name\n\n(The group name 'main' or '' will connect to the chattingly mainstream chat.)");
-			if (ngname != null || ngname != "") {
-				document.getElementById("grouplist").innerHTML += `<div class="group">
-			<b onclick="openw('/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
-			<a class="gname">` + ngname + `</a>
-		</div>`;
-				save();
+		<div id="Paris" class="tabcontent">
+			<div style="background-color: rgb(47 47 47);padding: 1px 20px;border-radius: 10px;">
+				<h3>Explore Most Active Groups and join them!</h3>
+				<p>Introducing Explore - where We all meet!</p>
+			</div>
+			<br>
+		</div>
+		<button class="addb" onclick="addg()">
+			+
+		</button>
+		<dialog id="wdialog">
+			<h1>Welcome To Chattingly!</h1>
+			<p><a onclick="scroll(0,1000)">Scroll down ⬇</a><br><br>Welcome to the vibrant realm of Chattingly! As you
+				embark on this thrilling journey of connection and
+				interaction, we invite you to immerse yourself in the enigmatic wonders that await.<br><br>
 
-			}
-		}
+				Within the boundless expanse of Chattingly, an ethereal tapestry of conversations unfolds. A realm where
+				the
+				unseen dances with the unknown, where words traverse unseen pathways, and whispers echo through the
+				digital
+				labyrinth.
+				<br><br>
+				As you venture deeper, embracing the flux of ethereal dialogues, be mindful of the subtle currents that
+				shape the ephemeral exchange of thoughts. While we strive to manifest a sanctuary of harmonious
+				discourse,
+				we cannot unravel the enigma of absolute message privacy.
+				<br><br>
+				In this mysterious realm, your voice carries the potential to conjure dreams, weave tales, and ignite
+				minds.
+				Yet, amidst the veiled corridors, caution is your guiding light. For in this dance of shadows, vigilance
+				must be your steadfast companion, guarding the secrets you hold dear.
+				<br><br>
+				Pause, dear traveler, and in this fleeting moment, acquaint yourself with the arcane inscriptions of our
+				privacy rite. Peer into the cryptic passages that illuminate the guardianship of your enigmatic
+				whispers.
+				<br><br>
+				Now, with your spirit attuned to the enigma that surrounds, venture forth. Discover the riddles of
+				existence, traverse the nebulous landscapes of conversation, and unravel the enigmatic tapestry of
+				connections that await within Chattingly.
+				<br><br>
+				May your journey be captivating, and may the ethereal embrace of this mystic realm enchant your every
+				interaction. Embrace the enigma, scribe your legacy, and venture forth into the enigmatic wonders of
+				Chattingly.<br><br>Make sure to read the Legal Shortnote : <a
+					href="https://chattingly.netlify.app/policy.md">here</a>
+			</p>
+			<button onclick="this.parentElement.close(); location.href='/auth.html?np=/'" class="acceptbtn">Agree and
+				continue</button>
+		</dialog>
+		<dialog id="gfs">
+			<h1>Group Options</h1>
+			<button class="btn1" onclick="this.parentElement.close(); this.parentElement.remove();">Delete
+				Group</button>
+			<button class="btn1" onclick="this.parentElement.close(); gfs.querySelector(':nth-child(3)').click()">Join
+				Group</button>
+			<button class="btn1" onclick="this.parentElement.close()">x</button>
+		</dialog>
+	</div>
+</body>
 
-		function setthe(val, z) {
-			let x = window.getComputedStyle(val).backgroundColor;
-			localStorage.setItem("ThCook", x);
-			localStorage.setItem("ThCook2", z);
-			location.reload();
-		}
-
-		function darkenRGBAColor(rgbaColor, darknessFactor) {
-			// Parse the RGBA color string
-			var colorValues = rgbaColor.match(/\d+/g);
-			var red = parseInt(colorValues[0]);
-			var green = parseInt(colorValues[1]);
-			var blue = parseInt(colorValues[2]);
-
-			// Calculate the darkened color channels
-			var darkenedRed = Math.round(red * (1 - darknessFactor));
-			var darkenedGreen = Math.round(green * (1 - darknessFactor));
-			var darkenedBlue = Math.round(blue * (1 - darknessFactor));
-
-			// Return the darkened RGBA color string
-			return "rgba(" + darkenedRed + ", " + darkenedGreen + ", " + darkenedBlue + ")";
-		}
-
-		function rem(e) {
-			if (confirm(`Do you want to delete this group?\n\nYou won't be able to join this group unless you know its name.`)) {
-				e.parentElement.remove();
-				save();
-			}
-		}
-
-		function save() {
-			localStorage.setItem("lists", document.getElementById("grouplist").innerHTML);
-
-			return "saved.";
-		}
-	</script>
+</html>

@@ -5,7 +5,8 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="manifest" href="/manifest.json" />
+	<link rel="manifest" href="/app.webmanifest" />
+	<meta name="google-site-verification" content="6eI-oO5eIMB2N2yrKK-TK0tdwG3aLXRHWWMuQHT83Uk" />
 	<link rel='icon'
 		href='https://media.discordapp.net/attachments/911886961273348096/1081887631643791470/Untitled502_20230305160449.png?width=405&height=405'>
 	<meta name="description"
@@ -21,19 +22,28 @@
 
 <body onfocus="focus()">
 	<div id="overlay" style="text-align: center; padding-top:20vh; backdrop-filter: blur(5px);">
-		<b class="titlea">Chatting<span style="color: dodgerblue">ly</span></b>
+		<b class="titlea">Chatting<span style="color: var(--main-color);">ly</span></b>
 		<br><br><br>
 		<a id="simt"></a>
 	</div>
+	<div id="mother">
 	<script>
-		var facts = ["you cannot send double quotes in Chattingly.", "You can view the total members connected in the settings tab.", "The logo glows...", "you can hover messages to delete them from your device.", "you can simply start typing and we will focus the input automatically", "click enter while typing to send it.", "you can click on user badges.", "you can see your UID on your badge."]
+		var facts = ["you cannot send double quotes in Chattingly.", "You can view the total members connected in the settings tab.", "The logo glows...", "you can hover messages to delete them from your device.", "you can simply start typing and we will focus the input automatically", "click enter while typing to send it.", "you can click on user badges.", "you can see your UID on your badge.", "type in a slash followed by anything for a slash command"]
 		function on() {
+			document.getElementById("overlay").style.opacity= "0%";
 			document.getElementById("overlay").style.display = "block";
+			document.getElementById("overlay").style.opacity= "100%";
 			document.getElementById("simt").innerHTML = facts[Math.floor(Math.random() * facts.length) + 0];
 		}
 
 		function off() {
-			document.getElementById("overlay").style.display = "none";
+			document.getElementById("overlay").style.opacity = "100%";
+			document.getElementById("overlay").style.display = "block";
+			document.getElementById("overlay").style.opacity = "0%";
+			setTimeout(function() {
+  document.getElementById("overlay").style.display = "none";
+}, 500);
+
 		}
 	</script>
 	<input id="aboutme" style="display: none;">
@@ -42,7 +52,7 @@
 	<script src="script.js" defer></script>
 	<script src="/gl.js" defer></script>
 	<div id="nav">
-		<b class="title">Chatting<span style="color: dodgerblue">ly </span></b> BETA
+		<b class="title" onclick="location.href = '/'">Chatting<span style="color: var(--main-color);">ly </span></b> BETA
 		<div class="dropdown" style="float:right;">
 			<b class="menuic dropbtn"><i class="material-icons">more_vert</i></b>
 			<div class="dropdown-content">
@@ -51,14 +61,31 @@
 						class="material-icons qusets">delete_sweep</i> Clear Chat</a>
 				<a onclick="openNav() "><i class="material-icons qusets">people</i> Member List</a>
 				<a onclick="window.location.reload()"><i class="material-icons qusets">autorenew</i> Rejoin</a>
-				<a onclick="location.href='/'"><i class="material-icons qusets">clear</i>Exit Group</a>
 				<a onclick="location.href='https://discord.gg/guH5c5sT6w'"><i
 						class="material-icons qusets">live_help</i>Support</a>
-				<a onclick="refreshCSS()"><i
-						class="material-icons qusets">repeat</i>Update CSS</a>
+				<a onclick="refreshCSS()"><i class="material-icons qusets">repeat</i>Update CSS</a>
+				<!--<a onclick="document.getElementById('myDialogs').showModal(); "><i
+						class="material-icons qusets">settings_applications</i> Settings</a>-->
 			</div>
 		</div>
 	</div>
+	<dialog id="myDialogs">
+		<h1>Settings</h1>
+		<div class="square-div" onclick="document.getElementById('myDialogs').close();">
+			<i class="material-icons qusets">close</i>
+			<span class="label">Close</span>
+		</div>
+
+		<div class="square-div">
+  <label class="option">
+    <input type="checkbox">
+    <span class="checkmark"></span><br>
+    <span class="label">Ping Sounds on all messages</span>
+  </label>
+</div>
+
+	</dialog>
+
 	<div id="overlay2">
 		<div class="custom-loader" style="margin: auto; margin-top: 180px"></div>
 	</div>
@@ -83,13 +110,15 @@
 	</div>
 	<div id="mess">
 		<div class="drop2up">
-		<input class="flex-item-left" id="message" placeholder="Send A Message.." autocomplete="off" onkeypress="knent()"
-			onkeyup="fu2()" maxlength="100">
-			
-  <div class="drop2up-content" id="slashes">
-    <a href="#" onclick="document.getElementById('message').value = '/img ' + prompt('Enter an image link: ') document.getElementById('send').click()">image - send and image</a>
-  </div>
-</div>
+			<input class="flex-item-left" id="message" placeholder="Send A Message.." autocomplete="off"
+				onkeypress="knent()" onkeyup="fu2()" maxlength="100">
+
+			<div class="drop2up-content" id="slashes">
+				<a onclick="insertimg()">image - send and image</a>
+				<a onclick="navigator.vibrate([100, 200, 100, 200, 300, 200, 100, 200, 100, 200, 300, 200, 100, 200, 100, 200, 300, 200]);
+">Make a funny vibration</a>
+			</div>
+		</div>
 		<button class="flex-item-right" id="send" onclick="send()"><i class="material-icons">send</i></button><br>
 		<a id="typing">...</a>
 	</div>
@@ -157,7 +186,9 @@
 			<h1 id="showout2">User</h1>
 			<sup><kbd id="showout3">UID Is not available</kbd></sup>
 			<p>Connected with <b class="title">Chatting<span style="color: dodgerblue">ly</span></b></p>
-			<a id="uionoff">Loading...</a> | <div class="btngrp"><button class="btn5" onclick="pinghim()">Ping</button><button class="btn5" onclick="dmhim()">Direct Message</button></div>
+			<a id="uionoff">Loading...</a> | <div class="btngrp"><button class="btn5"
+					onclick="pinghim()">Ping</button><button class="btn5" onclick="dmhim()">Direct Message</button>
+			</div>
 			<hr>
 			<p id="about" style="resize: none;" class='smptx'>A Random Person In Chattingly</p>
 		</div>
@@ -196,4 +227,5 @@
 			modalim.style.display = "none";
 		}
 	</script>
+	</div>
 </body>

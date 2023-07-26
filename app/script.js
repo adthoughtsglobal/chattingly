@@ -1,6 +1,6 @@
+var avans = 0;
 const button = document.getElementById("send");
 const meml = [];
-const slashcommands = ['f', 'g'];
 let yourcolor;
 let playnoises = new Boolean(false);
 var unremess = 0;
@@ -18,28 +18,18 @@ const banned = ["UID215751086"];
 if (banned.includes(lnu)) {
 	document.body.innerHTML = `<div style="text-align: center;padding: 25vh 20vw; cursor: no-drop"><h1 style="color: red; font-size: 100px ">!</h1><h1>Wait!, ` + localStorage.getItem("uname") + `, you're banned...</h1><p>This means you cannot use chattingly until the developer decides. You can still use mods or other services, illegally.</div>`;
 }
-
-if (lnu == null || lnu == "") {
-	let x = Math.floor(Math.random() * 999999999) + 100000000;
-	localStorage.setItem("lname", "UID" + x);
-}
-
-let luc = localStorage.getItem("lcolor");
-if (luc == null || luc == "") {
-	let x = "#333333";
-	localStorage.setItem("lcolor", x);
-	document.querySelector("#icls").value = "#333333";
-} else {
-	document.querySelector("#icls").value = luc;
-}
-
 if (localStorage.getItem("uname") == null || localStorage.getItem("uname") == "") {
-	document.getElementById("username").value = "user" + Math.floor(Math.random() * 999) + 100;
-	localStorage.setItem("uname", document.getElementById("username").value);
+	location.href = "/auth.html?np="+location.href;
 } else {
 	document.getElementById("username").value = localStorage.getItem("uname");
 	document.getElementById("aboutme").value = localStorage.getItem("udesc");
 }
+let luc = localStorage.getItem("lcolor");
+if (luc != null || luc != "") {
+	document.querySelector("#icls").value = luc;
+}
+
+
 
 localStorage.setItem("uname", document.getElementById("username").value);
 localStorage.setItem("udesc", document.getElementById("aboutme").value);
@@ -54,7 +44,6 @@ if (window.location.href.includes("?host=")) {
 	var connection = new WebSocket("wss://wss.adthoughtsglobal.repl.co");
 }
 
-sayname()
 if (window.location.href.includes("?h=")) {
 	var cutp = "ch";
 	const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -79,7 +68,7 @@ connection.onopen = (event) => {
 	if (cutp == "ch") {
 		if (localStorage.getItem("lists") == null) {
 			let x = localStorage.getItem("lists") + `<div class="group">
-			<b onclick="openw('/app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
+			<b onclick="openw('https://adthoughtsglobal.github.io/chattingly//app/?h=` + ngname + `')"><i class="material-icons">people</i></b><button class="del" onclick="rem(this)"><i class="material-icons">delete</i></button>
 			<a class="gname">` + ngname + `</a>
 		</div>`;
 			localStorage.setItem("lists", x);
@@ -98,17 +87,15 @@ connection.onopen = (event) => {
 		chat.innerHTML += `<div class="infocon"><h1>Connected to ${chcx}!</h1><p style='color:white;'>Start chatting on <b>${chcx}</b> with chattingly!<br><b>OnDev:</b> Some Features may not be visible, it will be visible soon!</p><button class="bsp1 btn btn-primary awidth" onclick="navigator.clipboard.writeText(location.href)" aria-label="default input example"><i class="fas fa-share"></i> Share</button></div>`;
 	}
 	cutewms = ["Just joined the chat!", "Showed Up!", "Just Joined, say hi!", "have just joined.", "made its way here."]
-	let cutewm = cutewms[Math.floor(Math.random() * cutewms.length) + 1];
+	let cutewm = cutewms[Math.floor(Math.random() * cutewms.length)];
 	connection.send(`{"server":" <p><i class='material-icons enex' style='font-size:15px;'>arrow_forward</i> ` + document.getElementById('username').value + ` ` + cutewm + `</p>", "hname":"` + chcx + `"}`);
 	connection.send(`{"crave":"show you", "hname":"` + chcx + `"}`);
 	setTimeout(off, 2000);
-		localStorage.setItem("lists", removeNull(localStorage.getItem("lists")));
+	localStorage.setItem("lists", removeNull(localStorage.getItem("lists")));
 };
 
 connection.onclose = (event) => {
 	console.log("Disconnected");
-	const error = document.querySelector("#error");
-	error.innerHTML = "<div class='custom-loader' id='deloader'></div>";
 	location.reload();
 };
 
@@ -119,7 +106,7 @@ connection.onerror = (event) => {
 var unnew;
 
 function focus() {
-	document.title = "Chattingly | " +chcx +" | "+ (meml.length - 1) + " users connected";
+	document.title = "Chattingly | " + chcx + " | " + (meml.length - 1) + " users connected";
 	unremess = 0;
 }
 
@@ -152,7 +139,7 @@ connection.onmessage = (event) => {
 
 			}
 		}
-		
+
 		// append received message from the server to the DOM element 
 		const chat = document.querySelector("#chat");
 		if (event.data == '"ping"') { return; }
@@ -178,14 +165,19 @@ connection.onmessage = (event) => {
 			}
 			let nmo = JSON.parse(event.data);
 			let punm = nmo.un;
+			let key = nmo.key;
 			let pdt = nmo.dt;
 			let pmc = nmo.mc;
-			let pnm = bold(removeTags(nmo.nm));
+			let pnm = addemojis(bold(removeTags(nmo.nm)));
 			// msuffix is the appended content before messages, the badge.
-		var msuffix = `<p class="mh"><button class="unms" style='color: ` + pmc + `' title="` + punm + `" onclick="showtext('` + punm + `','meth', '` + pmc + `')">` + punm + `</button> <span style="display: inline;" class="datewith">` + pdt + `</span><button class="delbtn" onclick="this.parentElement.remove()"><i class="material-icons" style="font-size:15px;">delete_forever</i></button><button class="delbtn" onclick="copym(this)"><i class="material-icons" style="font-size:15px;">content_copy</i></button> <br><span class="msgtxt">`;
-			
+			if (punm == document.getElementById("username").value) {
+				var msuffix = `<p class="mh"><button class="unms" style='color: ` + pmc + `' title="` + punm + `" onclick="showtext('` + punm + `','meth', '` + pmc + `')">` + punm + `</button> <span style="display: inline;" class="datewith">` + pdt + `</span><button class="delbtn" onclick="gdel(`+ key +`)"><i class="material-icons" style="font-size:15px;">delete_forever</i></button><button class="delbtn" onclick="copym(this)"><i class="material-icons" style="font-size:15px;">content_copy</i></button> <br><span class="msgtxt">`;
+			} else {
+			var msuffix = `<p class="mh"><button class="unms" style='color: ` + pmc + `' title="` + punm + `" onclick="showtext('` + punm + `','meth', '` + pmc + `')">` + punm + `</button> <span style="display: inline;" class="datewith">` + pdt + `</span><button class="delbtn" onclick="this.parentElement.remove()"><i class="material-icons" style="font-size:15px;">delete_forever</i></button><button class="delbtn" onclick="copym(this)"><i class="material-icons" style="font-size:15px;">content_copy</i></button> <br><span class="msgtxt">`;
+			}
+
 			let gnmfj = msuffix + pnm + `</span></p>`;
-       chat.lastElementChild.insertAdjacentHTML("afterend",gnmfj);
+			chat.lastElementChild.insertAdjacentHTML("afterend", gnmfj);
 			unnew = nmo.un;
 
 			if (document.querySelector("#chat").innerHTML.includes("E?")) {
@@ -241,8 +233,8 @@ connection.onmessage = (event) => {
 					let pdt = nmo.dt;
 					let pmc = nmo.mc;
 					let pnm = bold(removeTags(nmo.nm));
-			// msuffix is the appended content before messages, the badge.
-					let gnmfj = `<p class="mh"><button class="unms" style='color: ` + pmc + `' title="` + punm + `" onclick="showtext('` + punm + `','meth', '` + pmc + `')">` + punm + ` -> <span style="color: `+localStorage.getItem("lcolor")+`">You</span></button> <span style="display: inline;" class="datewith">` + pdt + ` (Direct Message : Only you can see this)</span><button class="delbtn" onclick="this.parentElement.remove()"><i class="material-icons" style="font-size:15px;">delete_forever</i></button><button class="delbtn" onclick="copym(this)"><i class="material-icons" style="font-size:15px;">content_copy</i></button> <br><span class="msgtxt">`+ pnm + `</span></p>`;
+					// msuffix is the appended content before messages, the badge.
+					let gnmfj = `<p class="mh"><button class="unms" style='color: ` + pmc + `' title="` + punm + `" onclick="showtext('` + punm + `','meth', '` + pmc + `')">` + punm + ` -> <span style="color: ` + localStorage.getItem("lcolor") + `">You</span></button> <span style="display: inline;" class="datewith">` + pdt + ` (Direct Message : Only you can see this)</span><button class="delbtn" onclick="this.parentElement.remove()"><i class="material-icons" style="font-size:15px;">delete_forever</i></button><button class="delbtn" onclick="copym(this)"><i class="material-icons" style="font-size:15px;">content_copy</i></button> <br><span class="msgtxt">` + pnm + `</span></p>`;
 					chat.lastElementChild.insertAdjacentHTML("afterend",
 						gnmfj);
 				}
@@ -266,37 +258,65 @@ connection.onmessage = (event) => {
 		}
 		window.scrollTo(0, document.body.scrollHeight);
 
+
+
 	};
 }
 
 function copym(el) {
-	navigator.clipboard.writeText(el.parentElement.getElementsByClassName("msgtxt")[0].value);
+navigator.clipboard.writeText(el.parentElement.lastChild.innerHTML);
 }
 
 
 // f- sending a message
 
 function send() {
-	const currentDate = new Date
-	let currentMinutes = currentDate.getMinutes().toString()
-	let currentHours = currentDate.getHours().toString()
+	function get12HourFormatUTCTime() {
+		const date = new Date();
+		const utcHours = date.getUTCHours();
+		const utcMinutes = date.getUTCMinutes();
+		const utcSeconds = date.getUTCSeconds();
 
-	if (currentMinutes.length < 2) {
-		currentMinutes = '0' + currentDate.getMinutes()
+		let hours = utcHours % 12;
+		if (hours === 0) {
+			hours = 12;
+		}
+
+		const amPm = utcHours >= 12 ? "PM" : "AM";
+
+		const formattedTime = hours.toString().padStart(2, "0") + ":" +
+			utcMinutes.toString().padStart(2, "0") + ":" +
+			utcSeconds.toString().padStart(2, "0") + " " + amPm;
+
+		return formattedTime;
 	}
-	if (currentHours.length < 2) {
-		currentHours = '0' + currentDate.getHours()
-	}
-	const dateString = currentHours + ':' + currentMinutes
+
+	const utcTime = get12HourFormatUTCTime();
+
+	const dateString = utcTime
 
 	const name = document.querySelector("#username")
 	const message = document.querySelector("#message");
-	let newmessage = message.value;
+	let newmessage = formdqs(message.value);
 
 	tiv();
 	/* The message sending part */
 
-	let data = `{"dat":"n", "un":"${name.value}", "dt":"${dateString}", "mc":"${yourcolor}", "nm":"${newmessage}", "hname":"` + chcx + `"}`;
+	function generateRandomSequence() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let sequence = '';
+
+  for (let i = 0; i < 6; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    sequence += characters.charAt(randomIndex);
+  }
+
+  return sequence;
+}
+
+ var meskey = generateRandomSequence();
+
+	let data = `{"dat":"n", "un":"${name.value}", "dt":"${dateString}", "mc":"${yourcolor}", "nm":"${newmessage}", "hname":"` + chcx + `","key":"${meskey}"}`;
 
 
 	// Slash Commands
@@ -315,25 +335,25 @@ function send() {
 		var christmas = newmessage.slice(11);
 		data = `{"dat":"n", "un":"Christmas", "dt":"${dateString}", "mc":"blue", "nm":"${christmas}", "hname":"` + chcx + `"}`;
 	}
-
-  // YouTube Embed
-	if (newmessage.startsWith("/ytem ")) {
-		link = newmessage.split(' ')[1]
-		data = `{"dat":"yte","l":"${link}", "un":"${name.value}", "dt":"${dateString}", "mc":"${yourcolor}"}`;
-	}
-
-  // DM
+	
+	// DM
 	if (newmessage.startsWith("/dm ")) {
 		nms = newmessage.split(' ')[1]
 		to = newmessage.split('@')[1]
 		data = `{"dat":"dm","to":"${to}", "un":"${name.value}", "dt":"${dateString}", "mc":"${yourcolor}", "nm":"${nms}", "hname":"` + chcx + `"}`;
 	}
 
-  // Channel (ig) 
+	// Channel (ig) 
 	if (newmessage.startsWith("/ch ")) {
 		nms = newmessage.split(' ')[1]
 		to = newmessage.split('#')[1]
 		data = `{"dat":"ch","to":"${to}", "un":"${name.value}", "dt":"${dateString}", "mc":"${yourcolor}", "nm":"${nms}"}`;
+	}
+
+	// New line : not a slash cmd
+	if (newmessage.includes("/n")) {
+		newmessage.replace("/n", `
+	`);
 	}
 
 	let newnnmessage = newmessage
@@ -345,6 +365,7 @@ function send() {
 
 	// clear input fields
 	message.value = "";
+	checkinpbord()
 };
 
 function insertimg() {
@@ -356,22 +377,6 @@ function insertimg() {
 var myModal = document.getElementById('modal')
 var myInput = document.getElementById('ignore')
 
-function sayname() {
-	localStorage.setItem("lcolor", document.querySelector("#icls").value);
-	yourcolor = document.querySelector("#icls").value;
-	if (document.querySelector("#username").value == localStorage.getItem("uname")) {
-	} else {
-		showtext(`<br>You Are<br><h1>` + document.getElementById("username").value + `</h1>`);
-		document.querySelector("#aboutme").setAttribute("placeholder", "Hi i am " + document.getElementById("username").value + "! say hi!");
-		connection.send(`{"server":"<div style='color: #787878;margin:0;margin-bottom: 5px;'>` + localStorage.getItem("uname") + ` have changed its username to ` + document.querySelector("#username").value + `</div>", "hname":"` + chcx + `"}`);
-
-		localStorage.setItem("uname", document.getElementById("username").value);
-
-
-	}
-	localStorage.setItem("udesc", document.getElementById("aboutme").value);
-}
-
 function fu1() {
 	modal.style.display = 'block';
 }
@@ -380,7 +385,7 @@ function abyt() {
 	$('#mfamp').modal('show');
 }
 
-document.body.blur= function() {
+document.body.blur = function() {
 	var nmsgs = 0;
 }
 
@@ -401,7 +406,7 @@ function showtext(text, x, z) {
 	if (x == 'meth') {
 		document.getElementById("showout2").innerHTML = text;
 		document.getElementById("myModal3").style.display = "block";
-		document.getElementById("mpmoc").style.background = "linear-gradient(8deg, "+z+" 0%, rgba(0,0,0,1) 100%)";
+		document.getElementById("mpmoc").style.background = "linear-gradient(8deg, " + z + " 0%, rgba(0,0,0,1) 100%)";
 		callforuser(text);
 	} else {
 		document.getElementById("showout").innerHTML = text;
@@ -426,15 +431,15 @@ function callforuser(user) {
 `
 	setTimeout(() => {
 		if (document.querySelector("#chat").lastElementChild.innerText.includes(`{"retrue`)) {
-			document.getElementById("uionoff").innerHTML = "🟢 Online";
+			document.getElementById("uionoff").innerHTML = "🟢";
 		} else {
-			document.getElementById("uionoff").innerHTML = "🔴 Offline";
+			document.getElementById("uionoff").innerHTML = "🔴";
 		}
 		document.querySelector("#about").innerHTML = removeTags(
- JSON.parse(document.querySelector("#chat").lastElementChild.innerText).abt);
+			JSON.parse(document.querySelector("#chat").lastElementChild.innerText).abt);
 		document.getElementById("showout3").innerHTML = JSON.parse(document.querySelector("#chat").lastElementChild.innerText).u;
 		document.querySelector("#about").style.filter = "blur(0)";
-	document.querySelector("#showout3").style.filter = "blur(0)";
+		document.querySelector("#showout3").style.filter = "blur(0)";
 	}, 2000);
 }
 
@@ -456,8 +461,8 @@ function removeTags(str) {
 		return false;
 	else
 		str = str.toString();
-		str = str.replace(/(<([^>]+)>)/ig, '')
-		str = str.replace("\n", '<br>');
+	str = str.replace(/(<([^>]+)>)/ig, '')
+	str = str.replace("\n", '<br>');
 	return str;
 }
 
@@ -466,10 +471,15 @@ function removeNull(str) {
 	return str.replace("null", '');
 }
 
-function bold(text){
-    var bold = /\*\*(.*?)\*\*/gm;
-    var html = text.replace(bold, '<strong>$1</strong>');            
-    return html;
+function formdqs(text) {
+  return text.replace(/"/g, "\\\"");
+}
+
+
+function bold(text) {
+	var bold = /\*\*(.*?)\*\*/gm;
+	var html = text.replace(bold, '<strong>$1</strong>');
+	return html;
 }
 
 function pinghim() {
@@ -482,17 +492,78 @@ function dmhim() {
 	send();
 }
 
-refreshCSS = () => {
-	on()
-            let links = document.getElementsByTagName('link');
-            for (let i = 0; i < links.length; i++) {
-                if (links[i].getAttribute('rel') == 'stylesheet') {
-                    let href = links[i].getAttribute('href');
 
-                    	let newHref = href + '#';
-                      
-                    links[i].setAttribute('href', newHref);
-                }
-            }
-	off()
-        }
+
+refreshCSS = () => {
+	let links = document.getElementsByTagName('link');
+	for (let i = 0; i < links.length; i++) {
+		if (links[i].getAttribute('rel') == 'stylesheet') {
+			let href = links[i].getAttribute('href');
+
+			let newHref = href + '#';
+
+			links[i].setAttribute('href', newHref);
+		}
+	}
+}
+
+function addemojis(inputString) {
+	var emojiData = {
+		"happy": "https://em-content.zobj.net/source/animated-noto-color-emoji/356/smiling-face-with-smiling-eyes_1f60a.gif",
+		"sweatsmile": "https://images-ext-1.discordapp.net/external/2btjmXRKdpqZpxucxE9V4Mr3ic3pIHH7PxAFXTCsr_g/%3Fsize%3D24%26quality%3Dlossless/https/cdn.discordapp.com/emojis/883683986805776384.gif?width=19&height=19",
+		"dollar": "https://cdn.discordapp.com/emojis/1043176947028611203.gif?size=24&quality=lossless",
+		"no no no": "https://media.discordapp.net/attachments/918481963948605531/1115530837203636255/shame_on_you.gif?width=28&height=25",
+		"kekw": "https://media.tenor.com/ASGuOCPGrKEAAAAM/kekw-kek.gif"
+	};
+
+	var regex = /:(.*?):|\/n/g;
+	var replacedString = inputString.replace(regex, function(match, captureGroup) {
+		if (captureGroup) {
+			var imgSrc = emojiData[captureGroup];
+			if (imgSrc) {
+				return '<img class="emoj" src="' + imgSrc + '" alt="' + captureGroup + '">';
+			} else {
+				return match;
+			}
+		} else {
+			return '<br>';
+		}
+	});
+
+	return replacedString;
+}
+
+
+var inputString = "This is a :happy: string with :some: text enclosed in colons.";
+var replacedString = addemojis(inputString);
+console.log(replacedString);
+
+// Get the input and send elements by their IDs
+const messageInput = document.getElementById('message');
+const sendButton = document.getElementById('send');
+
+function checkinpbord() {
+	if (messageInput.value.trim() !== '') {
+		// Apply the blue border to the send element
+		sendButton.style.border = '1px solid var(--main-color)';
+	} else {
+		// Remove the border if the input value is empty
+		sendButton.style.border = '1px solid grey';
+	}
+}
+
+// Add an event listener to the input to detect text changes
+messageInput.addEventListener('input', () => {
+	// Check if the input value is not empty
+	if (messageInput.value.trim() !== '') {
+		// Apply the blue border to the send element
+		sendButton.style.border = '1px solid var(--main-color)';
+	} else {
+		// Remove the border if the input value is empty
+		sendButton.style.border = '1px solid grey';
+	}
+});
+
+function gdel(key) {
+	
+}

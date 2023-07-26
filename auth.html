@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Please wait...</title>
+	<style>
+		body {
+			background-color: #222;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+			font-family: Arial, sans-serif;
+		}
+
+		.loading-text {
+			font-size: 24px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="loading-text">
+		Please wait...
+		<p>We are signing you in...</p>
+	</div>
+	<script>
+		if (localStorage.getItem("uname") ==  "" || localStorage.getItem("uname") == undefined) {
+			let x = "user" + Math.floor(Math.random() * 999) + 100;
+			localStorage.setItem("uname", x);
+			console.log("un set");
+		}
+
+		let luc = localStorage.getItem("lcolor");
+		if (luc ==  "" || luc == undefined) {
+			let x = "#009dff";
+			localStorage.setItem("lcolor", x);
+		}
+
+		if (localStorage.getItem("udesc") ==  "" || localStorage.getItem("udesc") == "") {
+			let x = "Hi! I am " + localStorage.getItem("uname") + ", say hi!";
+			localStorage.setItem("udesc", x);
+			console.log("ud set");
+		}
+
+		document.addEventListener('DOMContentLoaded', function() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const paramValue = urlParams.get('np');
+			setTimeout(function() {
+				location.href = paramValue;
+			}, 1000);
+		});
+	</script>
+</body>
+
+</html>
